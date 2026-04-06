@@ -10,6 +10,8 @@
 		046A7F51BD7730139A977D99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F0D0D19967B76252C4464 /* AppDelegate.swift */; };
 		12F43003EFFEDD47FCA52156 /* AppDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CB8FC5C33898A6A4D99C9 /* AppDiscoveryService.swift */; };
 		1DB75D9ED84588DE96416C5A /* AppLaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6799128580B23F1604846B73 /* AppLaunchService.swift */; };
+		340724FA5548D085C0CC18EE /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8739D6E8439D63E47920D76 /* SettingsService.swift */; };
+		3EA3A53736741D6ABB464632 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8E220017DD4F51CC45A707 /* PreferencesView.swift */; };
 		568C07A17AD30034934A83CA /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24158664A09AC6E6F655DB94 /* KeyboardHandler.swift */; };
 		656A5189CAC5C6CB3BF7A9CA /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 70A48E6892B53F730D06F993 /* HotKey */; };
 		6A6C5663068A839D865745E0 /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F92B242488500297ECF8C /* FloatingPanel.swift */; };
@@ -27,6 +29,7 @@
 		0A1F0D0D19967B76252C4464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A7B68912E4F4D374E792341 /* AppItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppItem.swift; sourceTree = "<group>"; };
 		0DE662510AB6CCC8C8D33A4D /* LauncherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8E220017DD4F51CC45A707 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		24158664A09AC6E6F655DB94 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		24D0F9057A5B3D0F787B6B56 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		27388E47988C69723DA70B9D /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		B4109D53D86902582B5A9C15 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D5E25E1A305710C04DB2461B /* LauncherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherApp.swift; sourceTree = "<group>"; };
 		EB3BF0F2F72358265A3773B2 /* CalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorService.swift; sourceTree = "<group>"; };
+		F8739D6E8439D63E47920D76 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				284CB8FC5C33898A6A4D99C9 /* AppDiscoveryService.swift */,
 				6799128580B23F1604846B73 /* AppLaunchService.swift */,
 				EB3BF0F2F72358265A3773B2 /* CalculatorService.swift */,
+				F8739D6E8439D63E47920D76 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 		FCB0D6BFBF264F9C69655DCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1F8E220017DD4F51CC45A707 /* PreferencesView.swift */,
 				7F4C56E14CCC3510AEF68FA1 /* ResultRowView.swift */,
 				24D0F9057A5B3D0F787B6B56 /* SearchView.swift */,
 			);
@@ -217,10 +223,12 @@
 				B9CAD9EC1C04FB43F6442430 /* FloatingPanelController.swift in Sources */,
 				568C07A17AD30034934A83CA /* KeyboardHandler.swift in Sources */,
 				FA8A47EE526D05EE5E2240F8 /* LauncherApp.swift in Sources */,
+				3EA3A53736741D6ABB464632 /* PreferencesView.swift in Sources */,
 				DD73BC733C7086736A3D9501 /* ResultRowView.swift in Sources */,
 				96EBC1AE6EAE0D89D350B99B /* SearchResult.swift in Sources */,
 				F01048B11DB9B52B6C141029 /* SearchView.swift in Sources */,
 				ACF91622C53CAFCD8409AD63 /* SearchViewModel.swift in Sources */,
+				340724FA5548D085C0CC18EE /* SettingsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

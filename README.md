@@ -37,6 +37,22 @@ open LauncherApp.xcodeproj
 
 Then build and run the `LauncherApp` scheme (Cmd+R).
 
+### Build & Install to /Applications
+
+```sh
+# Generate Xcode project (requires xcodegen: brew install xcodegen)
+xcodegen generate
+
+# Build the .app bundle
+xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -derivedDataPath build clean build
+
+# Copy to Applications
+cp -R build/Build/Products/Release/LauncherApp.app /Applications/LauncherApp.app
+
+# Launch
+open /Applications/LauncherApp.app
+```
+
 ## Usage
 
 | Action | Key |
