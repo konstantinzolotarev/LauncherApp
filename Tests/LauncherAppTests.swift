@@ -1,5 +1,6 @@
-import Testing
 import Foundation
+import Testing
+
 @testable import LauncherApp
 
 // MARK: - CalculatorService Tests
@@ -42,7 +43,7 @@ struct CalculatorServiceTests {
         // NSExpression performs integer division for int operands; use decimal input
         let result = CalculatorService.evaluate("10.0/3")
         #expect(result != nil)
-        #expect(result!.contains("."))
+        #expect(result?.contains(".") == true)
     }
 
     @Test("Integer formatting omits .0")
@@ -179,7 +180,7 @@ struct SearchViewModelTests {
         vm.selectedIndex = 3
         vm.reset()
 
-        #expect(vm.query == "")
+        #expect(vm.query.isEmpty)
         #expect(vm.results.isEmpty)
         #expect(vm.selectedIndex == 0)
     }
@@ -264,7 +265,7 @@ struct SearchViewModelTests {
     func moveSelectionStable() {
         let vm = SearchViewModel()
         vm.query = "2+2"
-        vm.moveSelection(by: 0) // no-op but exercises the path
+        vm.moveSelection(by: 0)  // no-op but exercises the path
         let idx = vm.selectedIndex
         // Simulate SwiftUI re-setting the same query via binding
         vm.query = "2+2"

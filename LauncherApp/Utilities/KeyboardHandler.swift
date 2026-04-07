@@ -24,16 +24,16 @@ final class KeyboardHandler {
 
     private func handleKeyDown(_ event: NSEvent) -> NSEvent? {
         switch Int(event.keyCode) {
-        case 125: // Down arrow
+        case 125:  // Down arrow
             viewModel?.moveSelection(by: 1)
             return nil
-        case 126: // Up arrow
+        case 126:  // Up arrow
             viewModel?.moveSelection(by: -1)
             return nil
-        case 53: // Escape
+        case 53:  // Escape
             onEscape?()
             return nil
-        case 36: // Return — handled by SwiftUI onSubmit, but as backup
+        case 36:  // Return — handled by SwiftUI onSubmit, but as backup
             return event
         default:
             return event

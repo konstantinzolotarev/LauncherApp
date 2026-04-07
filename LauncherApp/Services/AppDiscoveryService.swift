@@ -4,7 +4,6 @@ final class AppDiscoveryService {
     private var apps: [AppItem] = []
     private var mdQuery: MDQuery?
 
-
     func loadApps() -> [AppItem] {
         var discovered: [AppItem] = []
 
@@ -41,7 +40,8 @@ final class AppDiscoveryService {
 
             guard let path = MDItemCopyAttribute(mdItem, kMDItemPath) as? String else { continue }
             let url = URL(fileURLWithPath: path)
-            let name = MDItemCopyAttribute(mdItem, kMDItemDisplayName) as? String
+            let name =
+                MDItemCopyAttribute(mdItem, kMDItemDisplayName) as? String
                 ?? url.deletingPathExtension().lastPathComponent
 
             let bundle = Bundle(path: path)
@@ -64,11 +64,13 @@ final class AppDiscoveryService {
         let fm = FileManager.default
 
         for dir in directories {
-            guard let contents = try? fm.contentsOfDirectory(
-                at: dir,
-                includingPropertiesForKeys: nil,
-                options: [.skipsHiddenFiles]
-            ) else { continue }
+            guard
+                let contents = try? fm.contentsOfDirectory(
+                    at: dir,
+                    includingPropertiesForKeys: nil,
+                    options: [.skipsHiddenFiles]
+                )
+            else { continue }
 
             for url in contents where url.pathExtension == "app" {
                 let name = url.deletingPathExtension().lastPathComponent

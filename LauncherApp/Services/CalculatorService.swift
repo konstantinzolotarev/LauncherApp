@@ -1,11 +1,13 @@
 import Foundation
 
 struct CalculatorService {
+    // swiftlint:disable:next force_try
     private static let mathPattern = try! NSRegularExpression(
         pattern: #"^[\d\s\+\-\*\/\.\(\)\^]+$"#
     )
 
     // Must end with a digit or closing paren to be a valid expression
+    // swiftlint:disable:next force_try
     private static let validEnding = try! NSRegularExpression(
         pattern: #"[\d\)]$"#
     )

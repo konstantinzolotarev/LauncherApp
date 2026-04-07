@@ -37,6 +37,7 @@ final class SettingsService {
     // MARK: - Persistence
 
     private static var defaultFileURL: URL {
+        // swiftlint:disable:next force_unwrapping
         let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
         return appSupport.appendingPathComponent("LauncherApp/settings.json")
     }
@@ -73,8 +74,8 @@ private struct SettingsFile: Codable {
     }
 }
 
-private extension JSONEncoder {
-    static let prettyPrinted: JSONEncoder = {
+extension JSONEncoder {
+    fileprivate static let prettyPrinted: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         return encoder

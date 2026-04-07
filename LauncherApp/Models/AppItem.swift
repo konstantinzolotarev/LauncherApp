@@ -24,7 +24,7 @@ struct AppItem: Identifiable, Hashable {
         self.path = path
     }
 
-    static func == (lhs: AppItem, rhs: AppItem) -> Bool {
+    static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.id == rhs.id
     }
 

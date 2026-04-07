@@ -61,7 +61,7 @@ final class SearchViewModel {
         }
 
         // App search — filter out ignored apps
-        let visibleApps = allApps.filter { !( settingsService?.isIgnored($0.path.path) ?? false) }
+        let visibleApps = allApps.filter { !(settingsService?.isIgnored($0.path.path) ?? false) }
         let scored = visibleApps.compactMap { app -> (AppItem, Int)? in
             let score = matchScore(query: q.lowercased(), name: app.name.lowercased())
             return score > 0 ? (app, score) : nil

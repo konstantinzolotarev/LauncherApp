@@ -1,8 +1,8 @@
 import AppKit
 import SwiftUI
 
-private extension NSView {
-    func findFirstTextField() -> NSTextField? {
+extension NSView {
+    fileprivate func findFirstTextField() -> NSTextField? {
         if let tf = self as? NSTextField, tf.isEditable { return tf }
         for sub in subviews {
             if let found = sub.findFirstTextField() { return found }
@@ -73,13 +73,15 @@ final class FloatingPanelController: @unchecked Sendable {
         guard let panel, panel.isVisible else { return }
         observing = false
 
-        NSAnimationContext.runAnimationGroup({ ctx in
-            ctx.duration = 0.1
-            ctx.timingFunction = CAMediaTimingFunction(name: .easeIn)
-            panel.animator().alphaValue = 0
-        }, completionHandler: {
-            panel.orderOut(nil)
-        })
+        NSAnimationContext.runAnimationGroup(
+            { ctx in
+                ctx.duration = 0.1
+                ctx.timingFunction = CAMediaTimingFunction(name: .easeIn)
+                panel.animator().alphaValue = 0
+            },
+            completionHandler: {
+                panel.orderOut(nil)
+            })
     }
 
     private static func panelHeight(resultCount: Int) -> CGFloat {
@@ -121,9 +123,11 @@ final class FloatingPanelController: @unchecked Sendable {
 
     private func createPanel() {
         let panel = FloatingPanel(contentRect: NSRect(x: 0, y: 0, width: Self.panelWidth, height: Self.searchBarHeight))
-        let searchView = SearchView(viewModel: viewModel, onDismiss: { [weak self] in
-            self?.hide()
-        })
+        let searchView = SearchView(
+            viewModel: viewModel,
+            onDismiss: { [weak self] in
+                self?.hide()
+            })
         let hostingView = NSHostingView(rootView: searchView)
         hostingView.wantsLayer = true
         hostingView.layer?.cornerRadius = 12
