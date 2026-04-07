@@ -54,14 +54,8 @@ final class FloatingPanelController: @unchecked Sendable {
 
         panel.setFrame(NSRect(x: x, y: y, width: Self.panelWidth, height: panelHeight), display: true)
         startObservingResults()
-        panel.alphaValue = 0
+        panel.alphaValue = 1
         panel.makeKeyAndOrderFront(nil)
-
-        NSAnimationContext.runAnimationGroup { ctx in
-            ctx.duration = 0.15
-            ctx.timingFunction = CAMediaTimingFunction(name: .easeOut)
-            panel.animator().alphaValue = 1
-        }
 
         // Focus the text field
         DispatchQueue.main.async {
@@ -73,15 +67,7 @@ final class FloatingPanelController: @unchecked Sendable {
         guard let panel, panel.isVisible else { return }
         observing = false
 
-        NSAnimationContext.runAnimationGroup(
-            { ctx in
-                ctx.duration = 0.1
-                ctx.timingFunction = CAMediaTimingFunction(name: .easeIn)
-                panel.animator().alphaValue = 0
-            },
-            completionHandler: {
-                panel.orderOut(nil)
-            })
+        panel.orderOut(nil)
     }
 
     private static func panelHeight(resultCount: Int) -> CGFloat {
