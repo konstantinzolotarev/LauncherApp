@@ -58,6 +58,7 @@ final class AppDiscoveryService {
             URL(fileURLWithPath: "/Applications"),
             URL(fileURLWithPath: "/System/Applications"),
             URL(fileURLWithPath: "/System/Applications/Utilities"),
+            FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Applications"),
         ]
 
         var items: [AppItem] = []

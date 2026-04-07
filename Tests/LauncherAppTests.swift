@@ -308,6 +308,39 @@ struct SearchViewModelTests {
     }
 }
 
+// MARK: - AppDiscoveryService Tests
+
+@Suite("AppDiscoveryService")
+struct AppDiscoveryServiceTests {
+
+    @Test("loadApps returns sorted, deduplicated results")
+    func loadAppsBasics() {
+        let apps = AppDiscoveryService().loadApps()
+        #expect(!apps.isEmpty)
+        let names = apps.map(\.name)
+        #expect(names == names.sorted { $0.localizedCaseInsensitiveCompare($1) == .orderedAscending })
+        #expect(apps.map(\.id).count == Set(apps.map(\.id)).count)
+    }
+
+    @Test("scanDirectories includes ~/Applications when it exists")
+    func includesUserApplications() throws {
+        let fm = FileManager.default
+        let userAppsDir = fm.homeDirectoryForCurrentUser.appendingPathComponent("Applications")
+        let testAppDir = userAppsDir.appendingPathComponent("LauncherTestDummy.app")
+        let contentsDir = testAppDir.appendingPathComponent("Contents")
+        try fm.createDirectory(at: contentsDir, withIntermediateDirectories: true)
+        defer { try? fm.removeItem(at: testAppDir) }
+
+        let plist =
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + "<plist version=\"1.0\"><dict>"
+            + "<key>CFBundleIdentifier</key><string>com.test.dummy</string>" + "</dict></plist>"
+        try plist.write(to: contentsDir.appendingPathComponent("Info.plist"), atomically: true, encoding: .utf8)
+
+        let apps = AppDiscoveryService().loadApps()
+        #expect(apps.contains { $0.name == "LauncherTestDummy" })
+    }
+}
+
 // MARK: - SettingsService Tests
 
 @Suite("SettingsService")
