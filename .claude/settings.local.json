@@ -8,7 +8,10 @@
       "Bash(swift-format format:*)",
       "Bash(git status:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(xcodegen generate:*)",
+      "Bash(xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -derivedDataPath build/DerivedData build)",
+      "Bash(xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -showBuildSettings)"
     ]
   }
 }
