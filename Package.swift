@@ -13,7 +13,8 @@ let package = Package(
             name: "LauncherApp",
             dependencies: ["HotKey"],
             path: "LauncherApp",
-            exclude: ["App/Info.plist", "LauncherApp.entitlements"]
+            exclude: ["App/Info.plist", "LauncherApp.entitlements"],
+            resources: [.process("Assets.xcassets")]
         ),
         .testTarget(
             name: "LauncherAppTests",
