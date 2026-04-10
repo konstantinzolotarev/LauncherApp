@@ -11,7 +11,9 @@
       "Bash(git commit:*)",
       "Bash(xcodegen generate:*)",
       "Bash(xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -derivedDataPath build/DerivedData build)",
-      "Bash(xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -showBuildSettings)"
+      "Bash(xcodebuild -project LauncherApp.xcodeproj -scheme LauncherApp -configuration Release -showBuildSettings)",
+      "Bash(zip -r LauncherApp.zip LauncherApp.app)",
+      "Bash(gh release:*)"
     ]
   }
 }
